@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use("/restaurants", restaurantsRoutes);
+// app.use("/restaurants/new", restaurantsRoutes);
 app.use("/", (_, res) => { res.redirect('/restaurants'); });
 
 module.exports = app;
