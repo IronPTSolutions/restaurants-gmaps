@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const expressLayout = require('express-ejs-layouts');
 
 // Require routes
+const restaurantsRoutes = require('./routes/restaurants.routes');
 
 // Import DB config
 require('./config/db.config');
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-
+app.use("/restaurants", restaurantsRoutes);
+app.use("/", (_, res) => { res.redirect('/restaurants'); });
 
 module.exports = app;
